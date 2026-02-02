@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="TRSB.Application/TRSB.Application.csproj" Id="50572c44-6d26-4efc-a18c-50b63cf8424f" />
+    <Project Path="TRSB.Domain/TRSB.Domain.csproj" Id="d1607364-5e71-461b-84f5-3823ec68660f" />
+    <Project Path="TRSB.Infrastructure/TRSB.Infrastructure.csproj" Id="ebb2e367-0b48-4fbe-a9d6-ca9a478f5d92" />
+    <Project Path="TRSB.Web/TRSB.Web.csproj" Id="4703ddad-c92a-48ff-a428-42190a1532ec" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="TRSB.Tests/TRSB.Tests.csproj" Id="b8689e83-0500-4fbd-80de-9a77e6585d16" />
+  </Folder>
+</Solution>

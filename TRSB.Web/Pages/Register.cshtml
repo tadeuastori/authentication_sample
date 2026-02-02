@@ -1,0 +1,52 @@
+﻿@page "/register"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h3>Create Account</h3>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="Model.Name" class="form-control" />
+        <span asp-validation-for="Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">UserName</label>
+        <input asp-for="Model.UserName" class="form-control" />
+        <span asp-validation-for="Model.UserName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Model.Email" class="form-control" />
+        <span asp-validation-for="Model.Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input asp-for="Model.Password" type="password" class="form-control" />
+        <span asp-validation-for="Model.Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+        Create Account
+    </button>
+
+    <a asp-page="/Login" class="btn btn-link w-100">
+        Back to login
+    </a>
+
+    @if (!string.IsNullOrEmpty(Model.Error))
+    {
+        <div class="alert alert-danger mt-3 text-center">@Model.Error</div>
+    }
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
