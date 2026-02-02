@@ -108,7 +108,7 @@ src/WebApp/appsettings.json
 Example:
 
 ```
-Server=localhost,1433;Database=AuthDb;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=True
+Server=localhost,1433;Database=AccountsDb;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=True
 ```
 
 ### Run Application
