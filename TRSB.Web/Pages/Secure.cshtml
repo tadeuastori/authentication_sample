@@ -1,0 +1,9 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@model TRSB.Web.Pages.SecureModel
+<h3>Secure Area</h3>
+
+<a asp-page="/Profile">Edit Profile</a>
+<br />
+<a asp-page="/Logout">Logout</a>
