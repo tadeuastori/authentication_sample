@@ -55,15 +55,29 @@ The application uses the following configuration in `appsettings.json`:
 }
 ```
 
-#### **Database Initialization: Using EF Migration**
+---
 
-The application uses Entity Framework Core migrations. On application startup, all pending migrations are applied automatically, and the database is created if it does not exist. No manual migration steps are required.
+## 3. Database Initialization and Migrations
 
-This ensures that when the application is started (via `dotnet run` or on a server), the database is fully prepared and ready to use.
+The application uses **Entity Framework Core migrations** to manage the database schema.
+
+When the application starts, it automatically checks for pending migrations and applies them to the database.  
+This ensures that the database schema is created and updated without requiring manual intervention.
+
+### Behavior on Startup
+
+- If the database does not exist, it will be **created automatically**
+- If migrations are pending, they will be **applied automatically**
+- No manual SQL scripts are required to initialize the database
+
+This behavior allows a new developer or deployment environment to start the application immediately after configuring the connection string and database container.
+
+> ⚠️ **Important**  
+> The database container must be running before starting the application, as migrations are applied during application startup.
 
 ---
 
-## 3. Run the Application Locally
+## 4. Run the Application Locally
 
 ```
 dotnet restore
@@ -74,7 +88,7 @@ dotnet run --project TRSB.Web
 The application will be available at:
 
 ```
-https://localhost:xxxx/login
+https://localhost:<port>/login
 ```
 
 #### HTTPS Requirement
@@ -85,7 +99,7 @@ https://localhost:xxxx/login
 
 ---
 
-## 4. Publish the Application
+## 5. Publish the Application
 
 From the solution root:
 ```
@@ -96,7 +110,7 @@ This generates a publish-ready folder for IIS deployment.
 
 --- 
 
-## 5. Deploy to IIS
+## 6. Deploy to IIS
 #### IIS Configuration Steps
 
 1. Copy the publish folder to the server
@@ -120,9 +134,20 @@ For HTTPS to work correctly, the hosting environment must expose an HTTPS endpoi
 
 If HTTPS is not available, the application will run in HTTP mode only.
 
+#### IIS and Production Considerations
+
+When deploying to IIS:
+
+- Ensure the **ASP.NET Core Hosting Bundle** is installed on the server
+- Configure a valid **HTTPS certificate**
+- Bind the application to HTTPS in IIS
+- The application supports HTTP, but all pages are served over HTTPS
+
+No additional configuration is required for database migrations, as they are executed automatically on application startup.
+
 ---
 
-## 6. Authentication Notes
+## 7. Authentication Notes
 
 - Authentication uses Cookie Authentication
 - Protected pages use the [Authorize] attribute
@@ -130,7 +155,7 @@ If HTTPS is not available, the application will run in HTTP mode only.
 
 ---
 
-## 7. Common Issues
+## 8. Common Issues
 
 Application does not start on IIS
 - Verify ASP.NET Core Hosting Bundle installation
