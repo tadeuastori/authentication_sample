@@ -134,7 +134,7 @@ Example:
 
 ### Run Application
 
-> **HTTPS configuration**  
+> ⚠️  **HTTPS configuration**  
 >  
 > The application is configured to support both HTTP and HTTPS endpoints.    
 > However, all pages are **served only over HTTPS**, and HTTP requests are automatically redirected to HTTPS.    
@@ -150,7 +150,11 @@ Example:
 > https://localhost:7175/login
 > ```
 
-Execute: 
+Using Visual Studio:
+
+> If you are opening the application using Visual Studio, just press F5
+
+Using prompt, Execute: 
 
 ```
 dotnet restore
