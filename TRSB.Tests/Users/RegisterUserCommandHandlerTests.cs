@@ -19,7 +19,8 @@ public class RegisterUserCommandHandlerTests
         _passwordHasher = new PasswordHasher();
         _passwordPolicy = new ConfigurablePasswordPolicy(
             minLength: 6,
-            minSpecialChars: 1
+            minSpecialChars: 1,
+            specialChars: ['@']
         );
     }
 

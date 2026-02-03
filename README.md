@@ -111,6 +111,24 @@ Example:
 Server=localhost,1433;Database=AccountsDb;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=True
 ```
 
+### Define Password Policy
+
+Update the PasswordPolicy in:
+
+```
+src/WebApp/appsettings.json
+```
+
+Example:
+
+```
+"PasswordPolicy": {
+  "MinLength": 8,
+  "MinSpecialChars": 2,
+  "SpecialChars": [ "@", "#", "!", "%", "&", "*" ]
+}
+```
+
 ### Run Application
 
 ```

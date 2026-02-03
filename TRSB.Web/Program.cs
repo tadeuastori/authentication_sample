@@ -33,7 +33,8 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IPasswordPolicy>(sp =>
     new ConfigurablePasswordPolicy(
         builder.Configuration.GetValue<int>("PasswordPolicy:MinLength"),
-        builder.Configuration.GetValue<int>("PasswordPolicy:MinSpecialChars")
+        builder.Configuration.GetValue<int>("PasswordPolicy:MinSpecialChars"),
+        builder.Configuration.GetValue<char[]>("PasswordPolicy:SpecialChars") ?? []
     ));
 
 builder.Services.AddMediatR(cfg =>
