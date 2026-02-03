@@ -27,10 +27,13 @@ It demonstrates **clean architecture**, **cookie-based authentication**, **basic
 - SQL Server (Docker)  
 - xUnit  
 
-
-> #### Note on Database Choice (ARM64 compatibility)
-> Due to ARM64 architecture limitations on the development machine, the project uses mcr.microsoft.com/azure-sql-edge instead of the standard SQL Server image.
-> Azure SQL Edge is fully compatible with SQL Server features required by this project and is commonly used for local development and edge scenarios on ARM-based systems.
+> **Note on database choice (ARM64 compatibility)**  
+>  
+> The project uses **Azure SQL Edge** as the database engine when running locally via Docker.  
+>  
+> This choice was made due to **ARM64 architecture limitations on the local development machine**, as the standard SQL Server Docker image does not fully support ARM64 environments.  
+>  
+> Azure SQL Edge is **fully compatible with SQL Server features used in this project**, and the application can run without changes on standard SQL Server installations in non-ARM environments.
 
 
 ---
@@ -63,9 +66,6 @@ It demonstrates **clean architecture**, **cookie-based authentication**, **basic
 ---
 
 ## ▶️ How to Run the Application
-
-> ⚠️ **Note:** The application automatically applies all pending Entity Framework migrations and creates the database on startup. 
-> You do **not** need to run `dotnet ef database update` manually. Simply running the project will ensure the database is ready.
 
 ### Prerequisites
 
@@ -134,20 +134,28 @@ Example:
 
 ### Run Application
 
-#### Prerequisites
-- Development HTTPS certificate
-
-> #### Note
-> If this is your first time running the project locally, trust the ASP.NET Core HTTPS development certificate:
->```
+> **HTTPS configuration**  
+>  
+> The application is configured to support both HTTP and HTTPS endpoints.    
+> However, all pages are **served only over HTTPS**, and HTTP requests are automatically redirected to HTTPS.    
+> For local development, make sure you have a trusted development certificate by running:
+>  
+> ```bash
 > dotnet dev-certs https --trust
->```
+> ```
+>  
+> After trusting the certificate, restart the application and access it using:
+>  
+> ```
+> https://localhost:7175/login
+> ```
 
 Execute: 
 
 ```
-cd src/WebApp
-dotnet run
+dotnet restore
+dotnet build
+dotnet run --project TRSB.Web
 ```
 
 The application will be available at:
