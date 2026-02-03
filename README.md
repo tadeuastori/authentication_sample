@@ -64,6 +64,9 @@ It demonstrates **clean architecture**, **cookie-based authentication**, **basic
 
 ## ▶️ How to Run the Application
 
+> ⚠️ **Note:** The application automatically applies all pending Entity Framework migrations and creates the database on startup. 
+> You do **not** need to run `dotnet ef database update` manually. Simply running the project will ensure the database is ready.
+
 ### Prerequisites
 
 - .NET 8 SDK  
@@ -108,10 +111,39 @@ src/WebApp/appsettings.json
 Example:
 
 ```
-Server=localhost,1433;Database=AuthDb;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=True
+Server=localhost,1433;Database=AccountsDb;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=True
+```
+
+### Define Password Policy
+
+Update the PasswordPolicy in:
+
+```
+src/WebApp/appsettings.json
+```
+
+Example:
+
+```
+"PasswordPolicy": {
+  "MinLength": 8,
+  "MinSpecialChars": 2,
+  "SpecialChars": [ "@", "#", "!", "%", "&", "*" ]
+}
 ```
 
 ### Run Application
+
+#### Prerequisites
+- Development HTTPS certificate
+
+> #### Note
+> If this is your first time running the project locally, trust the ASP.NET Core HTTPS development certificate:
+>```
+> dotnet dev-certs https --trust
+>```
+
+Execute: 
 
 ```
 cd src/WebApp

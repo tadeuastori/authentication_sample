@@ -33,13 +33,20 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IPasswordPolicy>(sp =>
     new ConfigurablePasswordPolicy(
         builder.Configuration.GetValue<int>("PasswordPolicy:MinLength"),
-        builder.Configuration.GetValue<int>("PasswordPolicy:MinSpecialChars")
+        builder.Configuration.GetValue<int>("PasswordPolicy:MinSpecialChars"),
+        builder.Configuration.GetValue<char[]>("PasswordPolicy:SpecialChars") ?? []
     ));
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(RegisterUserCommand).Assembly));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
 
 if (!app.Environment.IsDevelopment())
 {

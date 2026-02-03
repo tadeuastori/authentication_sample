@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/docker/">
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="TRSB.Application/TRSB.Application.csproj" Id="50572c44-6d26-4efc-a18c-50b63cf8424f" />
     <Project Path="TRSB.Domain/TRSB.Domain.csproj" Id="d1607364-5e71-461b-84f5-3823ec68660f" />
