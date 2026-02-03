@@ -64,6 +64,9 @@ It demonstrates **clean architecture**, **cookie-based authentication**, **basic
 
 ## ▶️ How to Run the Application
 
+> ⚠️ **Note:** The application automatically applies all pending Entity Framework migrations and creates the database on startup. 
+> You do **not** need to run `dotnet ef database update` manually. Simply running the project will ensure the database is ready.
+
 ### Prerequisites
 
 - .NET 8 SDK  
@@ -130,6 +133,17 @@ Example:
 ```
 
 ### Run Application
+
+#### Prerequisites
+- Development HTTPS certificate
+
+> #### Note
+> If this is your first time running the project locally, trust the ASP.NET Core HTTPS development certificate:
+>```
+> dotnet dev-certs https --trust
+>```
+
+Execute: 
 
 ```
 cd src/WebApp

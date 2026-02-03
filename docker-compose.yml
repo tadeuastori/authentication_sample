@@ -1,0 +1,15 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: AccountsDb
+    environment:
+      ACCEPT_EULA: "1"
+      MSSQL_SA_PASSWORD: "YourStrong!Password"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  sql_data:
