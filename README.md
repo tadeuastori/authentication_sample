@@ -202,3 +202,29 @@ This project was created for technical evaluation purposes and focuses on clarit
 - Tests were added as a quality improvement, not as a requirement
 - The architecture is intentionally simple and easy to review
 - No external identity provider is used
+
+---
+
+## Use of AI-Assisted Tools
+
+During the development of this project, AI-assisted tools were used as a **productivity and support aid**, similarly to how documentation, search engines, and code examples are commonly used in professional environments.
+
+AI assistance was applied in the following areas:
+
+- **Unit Tests**
+  - Support in generating initial unit test structures and identifying relevant test scenarios.
+  - All tests were reviewed, adapted, and validated to align with the project’s architecture and business rules.
+
+- **Frontend (Razor Pages)**
+  - Assistance with Razor syntax, page lifecycle behavior, and best practices for form handling and validation.
+  - Final implementation decisions and adjustments were made manually to fit the project requirements.
+
+- **Documentation Standardization**
+  - Help with formatting, structuring, and standardizing README and deployment documentation.
+  - Technical content, architecture decisions, and implementation details were defined by me.
+
+- **Design Patterns (Strategy Pattern)**
+  - Support in understanding and applying the Strategy pattern in a clean and maintainable way.
+  - The final design reflects deliberate architectural choices aligned with the project constraints and simplicity requirements.
+
+The use of AI tools was **intentional and controlled**, focusing on improving clarity, consistency, and development efficiency, while all architectural decisions, business logic, and final code remain the responsibility of me.
