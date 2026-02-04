@@ -47,7 +47,7 @@ namespace TRSB.Tests.Users
             var command = new UpdateProfileCommand(
                 userId,
                 "newUser",
-                "new@email.com"
+                "new-hash"
             );
 
             // Act
@@ -55,7 +55,7 @@ namespace TRSB.Tests.Users
 
             // Assert
             existingUser.Username.Should().Be("newUser");
-            existingUser.Email.Should().Be("new@email.com");
+            existingUser.PasswordHash.Should().Be("new-hash");
             userRepository.Verify(r => r.UpdateAsync(existingUser), Times.Once);
         }
 

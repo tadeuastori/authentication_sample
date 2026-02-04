@@ -28,10 +28,11 @@ public class UpdateProfileCommandHandler
         if (await _userRepository.ExistsByUsernameAsync(request.UserName, request.UserId))
             throw new ApplicationException("Username already exists");
 
-        if (await _userRepository.ExistsByEmailAsync(request.Email, request.UserId))
-            throw new ApplicationException("Email already exists");
+        _policy.Validate(request.Password);
 
-        user.UpdateProfile(user.Name, request.UserName, request.Email, user.PasswordHash);
+        var hash = _hasher.Hash(request.Password);
+
+        user.UpdateProfile(user.Name, request.UserName, user.Email, hash);
 
         await _userRepository.UpdateAsync(user);
     }

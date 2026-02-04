@@ -41,7 +41,7 @@ public class ProfileModel : PageModel
             await _mediator.Send(new UpdateProfileCommand(
                 userId,
                 Model.UserName,
-                Model.Email
+                Model.Password
             ));
 
             Success = "Profile has been updated";
@@ -101,7 +101,7 @@ public class ProfileModel : PageModel
             UserName = profile.UserName,
             Name = profile.Name,
             Email = profile.Email,
-            Password = string.Empty
+            Password = profile.Password
         };
     }
 

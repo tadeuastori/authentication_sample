@@ -3,5 +3,5 @@
 public record UpdateProfileCommand(
     Guid UserId,
     string UserName,
-    string Email
+    string Password
 ) : IRequest;

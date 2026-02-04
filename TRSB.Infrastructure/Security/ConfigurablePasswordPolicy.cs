@@ -17,7 +17,7 @@ public class ConfigurablePasswordPolicy : IPasswordPolicy
 
     public void Validate(string password)
     {
-        if (password.Length < _minLength)
+        if (password?.Length < _minLength)
             throw new ArgumentException($"Password too short. Minimun of {_minLength} characters are required.");
 
         if(_specialChars.Length > 0)
