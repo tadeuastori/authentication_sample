@@ -50,8 +50,9 @@ It demonstrates **clean architecture**, **cookie-based authentication**, **basic
   └── WebApp.Tests
 /docker
   └── docker-compose.yml
+/README.md
+/DEPLOYMENT.md
 ```
-
 ---
 
 ## 🔐 Security Notes
@@ -205,7 +206,7 @@ This project was created for technical evaluation purposes and focuses on clarit
 
 ---
 
-## Use of AI-Assisted Tools
+## 🧠 Use of AI-Assisted Tools
 
 During the development of this project, AI-assisted tools were used as a **productivity and support aid**, similarly to how documentation, search engines, and code examples are commonly used in professional environments.
 
